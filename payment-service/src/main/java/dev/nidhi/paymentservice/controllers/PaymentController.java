@@ -6,16 +6,25 @@ import dev.nidhi.paymentservice.repositories.PaymentRepository;
 import dev.nidhi.paymentservice.services.PaymentService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/payments")
-@AllArgsConstructor
 public class PaymentController {
     private final PaymentService paymentService;
     private final PaymentRepository paymentRepository;
+
+    public PaymentController(PaymentService paymentService,
+                             PaymentRepository paymentRepository) {
+        this.paymentService = paymentService;
+        this.paymentRepository = paymentRepository;
+    }
+
+    @Value("${server.port}")
+    private String port;
 
     @PostMapping("")
     public ResponseEntity<Payment> createPayment
@@ -39,6 +48,7 @@ public class PaymentController {
 
     @GetMapping("/hello")
     public ResponseEntity<String> hello() {
-        return ResponseEntity.ok("Hello from Payment Service");
+        return ResponseEntity.ok("Hello from Payment Service running" +
+                " on Port: "+ port);
     }
 }
