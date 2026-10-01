@@ -71,6 +71,12 @@ import java.security.interfaces.RSAPublicKey;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    private final UserRepository userRepository;
+
+    public SecurityConfig(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     @Bean
     @Order(1)
     public SecurityFilterChain authorizationServerSecurityFilterChain(
@@ -296,6 +302,13 @@ public class SecurityConfig {
 
                 context.getClaims()
                         .claim("authorities", authorities);
+
+                String userName = authentication.getName();
+                Long userId = userRepository.findByEmail(userName)
+                        .map(user -> user.getId())
+                        .orElse(null);
+
+                context.getClaims().claim("userId", userId);
             }
         };
     }
