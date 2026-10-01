@@ -10,8 +10,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/products")
@@ -19,6 +21,7 @@ public class ProductController {
 
     private final ProductService productService;
     private final RedisService redisService;
+    private final Logger log = LoggerFactory.getLogger(ProductController.class);
 
     public ProductController(ProductService productService,
                              RedisService redisService) {
@@ -45,6 +48,8 @@ public class ProductController {
             @RequestParam MultiValueMap<String, String> params
             ) {
 
+        log.info("GET /products called");
+
         List<String> sort = params.getOrDefault("sort", List.of("id,asc"));
 
         Page<Product> products = productService.getProducts(page, size,
@@ -70,6 +75,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ProductDTO> getProductById(@PathVariable("id") Long id){
+
         ProductDTO productDTO = redisService.
                                        get(
                                        "PRODUCTS",

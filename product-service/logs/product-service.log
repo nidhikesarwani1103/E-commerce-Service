@@ -1,0 +1,358 @@
+2026-10-01 17:36:28.670 [restartedMain] INFO  d.n.p.ProductServiceApplication - Starting ProductServiceApplication using Java 24.0.1 with PID 12076 (C:\Users\kesar\IdeaProjects\e-commerce-micorservices\product-service\target\classes started by kesar in C:\Users\kesar\IdeaProjects\e-commerce-micorservices\product-service)
+2026-10-01 17:36:28.690 [restartedMain] INFO  d.n.p.ProductServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-10-01 17:36:28.895 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-10-01 17:36:28.896 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-10-01 17:36:34.806 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-10-01 17:36:34.815 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-01 17:36:35.787 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 924 ms. Found 2 JPA repository interfaces.
+2026-10-01 17:36:35.910 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-10-01 17:36:35.925 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-10-01 17:36:36.071 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface dev.nidhi.productservice.repositories.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-10-01 17:36:36.078 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface dev.nidhi.productservice.repositories.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-10-01 17:36:36.080 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 89 ms. Found 0 Redis repository interfaces.
+2026-10-01 17:36:38.161 [restartedMain] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=701ecb7d-6556-37a6-80dc-173da282b5b3
+2026-10-01 17:36:44.296 [restartedMain] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-10-01 17:36:44.414 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-10-01 17:36:44.426 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-10-01 17:36:44.429 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-01 17:36:45.004 [restartedMain] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 16105 ms
+2026-10-01 17:36:48.125 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-10-01 17:36:49.790 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1fe91fc2
+2026-10-01 17:36:49.800 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-10-01 17:36:49.969 [restartedMain] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:mysql://localhost:3306/products (MySQL 8.0)
+2026-10-01 17:36:52.022 [restartedMain] INFO  o.f.core.internal.command.DbValidate - Successfully validated 2 migrations (execution time 00:00.153s)
+2026-10-01 17:36:52.069 [restartedMain] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `products`: 2
+2026-10-01 17:36:52.085 [restartedMain] INFO  o.f.core.internal.command.DbMigrate - Schema `products` is up to date. No migration necessary.
+2026-10-01 17:36:52.600 [restartedMain] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-01 17:36:53.095 [restartedMain] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-01 17:36:56.103 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-01 17:36:56.711 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/products]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.38
+	Default catalog/schema: products/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-01 17:36:58.942 [restartedMain] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-01 17:36:59.083 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 17:37:00.109 [restartedMain] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-01 17:37:00.954 [restartedMain] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-01 17:37:01.598 [restartedMain] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-10-01 17:37:01.659 [restartedMain] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-10-01 17:37:01.720 [restartedMain] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-10-01 17:37:01.746 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-10-01 17:37:01.750 [restartedMain] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-10-01 17:37:01.758 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-10-01 17:37:01.758 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-10-01 17:37:01.758 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-10-01 17:37:01.758 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-10-01 17:37:01.758 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-10-01 17:37:01.758 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-10-01 17:37:01.758 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-10-01 17:37:02.000 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-10-01 17:37:02.001 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-10-01 17:37:02.004 [restartedMain] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-10-01 17:37:02.006 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1790856422005 with initial instances count: 1
+2026-10-01 17:37:02.010 [restartedMain] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application PRODUCT-SERVICE with eureka with status UP
+2026-10-01 17:37:02.011 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1790856422011, current=UP, previous=STARTING]
+2026-10-01 17:37:02.012 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-10-01 17:37:02.012 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080: registering service...
+2026-10-01 17:37:02.023 [restartedMain] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-10-01 17:37:02.024 [restartedMain] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8080
+2026-10-01 17:37:02.041 [restartedMain] INFO  d.n.p.ProductServiceApplication - Started ProductServiceApplication in 35.007 seconds (process running for 37.51)
+2026-10-01 17:37:02.056 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080 - registration status: 204
+2026-10-01 17:37:08.681 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-01 17:37:08.682 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-10-01 17:37:08.686 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2026-10-01 17:37:10.819 [http-nio-8080-exec-2] INFO  d.n.p.controllers.ProductController - GET /products called
+2026-10-01 17:37:14.102 [http-nio-8080-exec-2] WARN  o.s.d.w.c.SpringDataJackson3Configuration$PageModule$WarningLoggingModifier - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-10-01 17:38:56.137 [SpringApplicationShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application PRODUCT-SERVICE with eureka with status DOWN
+2026-10-01 17:38:56.142 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1790856536142, current=DOWN, previous=UP]
+2026-10-01 17:38:56.143 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080: registering service...
+2026-10-01 17:38:56.183 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080 - registration status: 204
+2026-10-01 17:38:56.244 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-01 17:38:56.275 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-10-01 17:38:56.392 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 17:38:56.419 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-10-01 17:38:56.466 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-10-01 17:38:56.473 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-10-01 17:38:59.476 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-10-01 17:38:59.510 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080 - deregister  status: 200
+2026-10-01 17:38:59.513 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-10-01 17:59:36.898 [restartedMain] INFO  d.n.p.ProductServiceApplication - Starting ProductServiceApplication using Java 24.0.1 with PID 15884 (C:\Users\kesar\IdeaProjects\e-commerce-micorservices\product-service\target\classes started by kesar in C:\Users\kesar\IdeaProjects\e-commerce-micorservices\product-service)
+2026-10-01 17:59:36.902 [restartedMain] INFO  d.n.p.ProductServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-10-01 17:59:36.965 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-10-01 17:59:36.965 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-10-01 17:59:39.915 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-10-01 17:59:39.922 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-01 17:59:40.837 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 873 ms. Found 2 JPA repository interfaces.
+2026-10-01 17:59:40.897 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-10-01 17:59:40.907 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-10-01 17:59:40.989 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface dev.nidhi.productservice.repositories.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-10-01 17:59:40.991 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface dev.nidhi.productservice.repositories.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-10-01 17:59:40.991 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 0 Redis repository interfaces.
+2026-10-01 17:59:42.315 [restartedMain] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=701ecb7d-6556-37a6-80dc-173da282b5b3
+2026-10-01 17:59:45.764 [restartedMain] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-10-01 17:59:45.816 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-10-01 17:59:45.826 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-10-01 17:59:45.828 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-01 17:59:46.071 [restartedMain] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 9105 ms
+2026-10-01 17:59:47.099 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-10-01 17:59:50.422 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@35a98805
+2026-10-01 17:59:50.429 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-10-01 17:59:50.599 [restartedMain] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:mysql://localhost:3306/products (MySQL 8.0)
+2026-10-01 17:59:52.199 [restartedMain] INFO  o.f.core.internal.command.DbValidate - Successfully validated 2 migrations (execution time 00:00.089s)
+2026-10-01 17:59:52.228 [restartedMain] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `products`: 2
+2026-10-01 17:59:52.244 [restartedMain] INFO  o.f.core.internal.command.DbMigrate - Schema `products` is up to date. No migration necessary.
+2026-10-01 17:59:52.611 [restartedMain] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-01 17:59:52.801 [restartedMain] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-01 17:59:55.275 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-01 17:59:55.693 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/products]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.38
+	Default catalog/schema: products/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-01 18:00:01.069 [restartedMain] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-01 18:00:01.334 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 18:00:05.341 [restartedMain] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-01 18:00:09.094 [restartedMain] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-01 18:00:12.283 [restartedMain] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-10-01 18:00:12.583 [restartedMain] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-10-01 18:00:12.934 [restartedMain] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-10-01 18:00:13.057 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-10-01 18:00:13.075 [restartedMain] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-10-01 18:00:13.115 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-10-01 18:00:13.115 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-10-01 18:00:13.115 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-10-01 18:00:13.116 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-10-01 18:00:13.116 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-10-01 18:00:13.117 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-10-01 18:00:13.118 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-10-01 18:00:14.219 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-10-01 18:00:14.227 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-10-01 18:00:14.235 [restartedMain] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-10-01 18:00:14.245 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1790857814240 with initial instances count: 1
+2026-10-01 18:00:14.261 [restartedMain] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application PRODUCT-SERVICE with eureka with status UP
+2026-10-01 18:00:14.264 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1790857814264, current=UP, previous=STARTING]
+2026-10-01 18:00:14.273 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-10-01 18:00:14.273 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080: registering service...
+2026-10-01 18:00:14.339 [restartedMain] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-10-01 18:00:14.343 [restartedMain] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8080
+2026-10-01 18:00:14.440 [restartedMain] INFO  d.n.p.ProductServiceApplication - Started ProductServiceApplication in 38.172 seconds (process running for 39.389)
+2026-10-01 18:00:14.613 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080 - registration status: 204
+2026-10-01 18:02:55.897 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-01 18:02:55.923 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-10-01 18:02:56.093 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 165 ms
+2026-10-01 18:02:59.074 [http-nio-8080-exec-1] INFO  d.n.p.controllers.ProductController - GET /products called
+2026-10-01 18:03:00.367 [http-nio-8080-exec-1] WARN  o.s.d.w.c.SpringDataJackson3Configuration$PageModule$WarningLoggingModifier - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-10-01 18:03:10.621 [http-nio-8080-exec-2] INFO  d.n.p.controllers.ProductController - GET /products called
+2026-10-01 18:03:13.929 [http-nio-8080-exec-3] INFO  d.n.p.controllers.ProductController - GET /products called
+2026-10-01 18:04:19.694 [SpringApplicationShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application PRODUCT-SERVICE with eureka with status DOWN
+2026-10-01 18:04:19.696 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1790858059695, current=DOWN, previous=UP]
+2026-10-01 18:04:19.696 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080: registering service...
+2026-10-01 18:04:19.762 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080 - registration status: 204
+2026-10-01 18:04:19.767 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-01 18:04:19.784 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-10-01 18:04:19.982 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 18:04:20.031 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-10-01 18:04:20.107 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-10-01 18:04:20.119 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-10-01 18:04:23.124 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-10-01 18:04:23.145 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080 - deregister  status: 200
+2026-10-01 18:04:23.148 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-10-01 18:06:34.525 [restartedMain] INFO  d.n.p.ProductServiceApplication - Starting ProductServiceApplication using Java 24.0.1 with PID 22852 (C:\Users\kesar\IdeaProjects\e-commerce-micorservices\product-service\target\classes started by kesar in C:\Users\kesar\IdeaProjects\e-commerce-micorservices\product-service)
+2026-10-01 18:06:34.529 [restartedMain] INFO  d.n.p.ProductServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-10-01 18:06:34.601 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-10-01 18:06:34.602 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-10-01 18:06:36.209 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-10-01 18:06:36.211 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-01 18:06:36.500 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 274 ms. Found 2 JPA repository interfaces.
+2026-10-01 18:06:36.539 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-10-01 18:06:36.543 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-10-01 18:06:36.572 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface dev.nidhi.productservice.repositories.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-10-01 18:06:36.572 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface dev.nidhi.productservice.repositories.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-10-01 18:06:36.572 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2026-10-01 18:06:37.072 [restartedMain] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=701ecb7d-6556-37a6-80dc-173da282b5b3
+2026-10-01 18:06:37.863 [restartedMain] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-10-01 18:06:37.890 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-10-01 18:06:37.893 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-10-01 18:06:37.894 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-01 18:06:37.994 [restartedMain] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 3391 ms
+2026-10-01 18:06:38.513 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-10-01 18:06:39.430 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@c4015e0
+2026-10-01 18:06:39.436 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-10-01 18:06:39.508 [restartedMain] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:mysql://localhost:3306/products (MySQL 8.0)
+2026-10-01 18:06:40.606 [restartedMain] INFO  o.f.core.internal.command.DbValidate - Successfully validated 2 migrations (execution time 00:00.126s)
+2026-10-01 18:06:40.650 [restartedMain] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `products`: 2
+2026-10-01 18:06:40.666 [restartedMain] INFO  o.f.core.internal.command.DbMigrate - Schema `products` is up to date. No migration necessary.
+2026-10-01 18:06:40.967 [restartedMain] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-01 18:06:41.176 [restartedMain] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-01 18:06:42.374 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-01 18:06:42.671 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/products]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.38
+	Default catalog/schema: products/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-01 18:06:45.214 [restartedMain] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-01 18:06:45.352 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 18:06:47.300 [restartedMain] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-01 18:06:49.226 [restartedMain] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-01 18:06:50.920 [restartedMain] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-10-01 18:06:51.073 [restartedMain] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-10-01 18:06:51.336 [restartedMain] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-10-01 18:06:51.431 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-10-01 18:06:51.441 [restartedMain] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-10-01 18:06:51.466 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-10-01 18:06:51.467 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-10-01 18:06:51.468 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-10-01 18:06:51.468 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-10-01 18:06:51.468 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-10-01 18:06:51.468 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-10-01 18:06:51.468 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-10-01 18:06:52.118 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-10-01 18:06:52.122 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-10-01 18:06:52.126 [restartedMain] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-10-01 18:06:52.132 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1790858212128 with initial instances count: 2
+2026-10-01 18:06:52.139 [restartedMain] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application PRODUCT-SERVICE with eureka with status UP
+2026-10-01 18:06:52.141 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1790858212140, current=UP, previous=STARTING]
+2026-10-01 18:06:52.145 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-10-01 18:06:52.145 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080: registering service...
+2026-10-01 18:06:52.182 [restartedMain] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-10-01 18:06:52.185 [restartedMain] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8080
+2026-10-01 18:06:52.230 [restartedMain] INFO  d.n.p.ProductServiceApplication - Started ProductServiceApplication in 19.116 seconds (process running for 21.243)
+2026-10-01 18:06:52.292 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080 - registration status: 204
+2026-10-01 18:07:30.311 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-01 18:07:30.314 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-10-01 18:07:30.329 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 15 ms
+2026-10-01 18:08:14.133 [http-nio-8080-exec-6] INFO  d.n.p.controllers.ProductController - GET /products called, correlationId: 6cfbc532-c934-46d0-84ac-e84732ba413d
+2026-10-01 18:08:15.170 [http-nio-8080-exec-6] WARN  o.s.d.w.c.SpringDataJackson3Configuration$PageModule$WarningLoggingModifier - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-10-01 18:09:55.852 [SpringApplicationShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application PRODUCT-SERVICE with eureka with status DOWN
+2026-10-01 18:09:55.860 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1790858395860, current=DOWN, previous=UP]
+2026-10-01 18:09:55.861 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080: registering service...
+2026-10-01 18:09:55.894 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080 - registration status: 204
+2026-10-01 18:09:55.926 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-01 18:09:55.954 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-10-01 18:09:56.171 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 18:09:56.219 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-10-01 18:09:56.271 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-10-01 18:09:56.274 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-10-01 18:09:59.283 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-10-01 18:09:59.327 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080 - deregister  status: 200
+2026-10-01 18:09:59.330 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-10-01 18:16:04.022 [restartedMain] INFO  [correlationId=] d.n.p.ProductServiceApplication - Starting ProductServiceApplication using Java 24.0.1 with PID 23640 (C:\Users\kesar\IdeaProjects\e-commerce-micorservices\product-service\target\classes started by kesar in C:\Users\kesar\IdeaProjects\e-commerce-micorservices\product-service)
+2026-10-01 18:16:04.036 [restartedMain] INFO  [correlationId=] d.n.p.ProductServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-10-01 18:16:04.290 [restartedMain] INFO  [correlationId=] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-10-01 18:16:04.291 [restartedMain] INFO  [correlationId=] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-10-01 18:16:09.547 [restartedMain] INFO  [correlationId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-10-01 18:16:09.558 [restartedMain] INFO  [correlationId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-01 18:16:10.598 [restartedMain] INFO  [correlationId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 980 ms. Found 2 JPA repository interfaces.
+2026-10-01 18:16:10.706 [restartedMain] INFO  [correlationId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-10-01 18:16:10.717 [restartedMain] INFO  [correlationId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-10-01 18:16:10.831 [restartedMain] INFO  [correlationId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface dev.nidhi.productservice.repositories.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-10-01 18:16:10.839 [restartedMain] INFO  [correlationId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface dev.nidhi.productservice.repositories.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-10-01 18:16:10.844 [restartedMain] INFO  [correlationId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 65 ms. Found 0 Redis repository interfaces.
+2026-10-01 18:16:12.688 [restartedMain] INFO  [correlationId=] o.s.cloud.context.scope.GenericScope - BeanFactory id=d60e17a2-15c7-3b28-afaf-428377263551
+2026-10-01 18:16:15.322 [restartedMain] INFO  [correlationId=] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-10-01 18:16:15.390 [restartedMain] INFO  [correlationId=] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-10-01 18:16:15.399 [restartedMain] INFO  [correlationId=] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-10-01 18:16:15.404 [restartedMain] INFO  [correlationId=] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-01 18:16:15.850 [restartedMain] INFO  [correlationId=] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 11558 ms
+2026-10-01 18:16:17.408 [restartedMain] INFO  [correlationId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-10-01 18:16:19.167 [restartedMain] INFO  [correlationId=] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3e95414a
+2026-10-01 18:16:19.172 [restartedMain] INFO  [correlationId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-10-01 18:16:19.325 [restartedMain] INFO  [correlationId=] org.flywaydb.core.FlywayExecutor - Database: jdbc:mysql://localhost:3306/products (MySQL 8.0)
+2026-10-01 18:16:21.663 [restartedMain] INFO  [correlationId=] o.f.core.internal.command.DbValidate - Successfully validated 2 migrations (execution time 00:00.144s)
+2026-10-01 18:16:21.725 [restartedMain] INFO  [correlationId=] o.f.core.internal.command.DbMigrate - Current version of schema `products`: 2
+2026-10-01 18:16:21.746 [restartedMain] INFO  [correlationId=] o.f.core.internal.command.DbMigrate - Schema `products` is up to date. No migration necessary.
+2026-10-01 18:16:22.294 [restartedMain] INFO  [correlationId=] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-01 18:16:22.695 [restartedMain] INFO  [correlationId=] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-01 18:16:25.247 [restartedMain] INFO  [correlationId=] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-01 18:16:25.728 [restartedMain] INFO  [correlationId=] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/products]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.38
+	Default catalog/schema: products/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-01 18:16:30.697 [restartedMain] INFO  [correlationId=] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-01 18:16:30.974 [restartedMain] INFO  [correlationId=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 18:16:34.714 [restartedMain] INFO  [correlationId=] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-01 18:16:38.548 [restartedMain] WARN  [correlationId=] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-01 18:16:41.850 [restartedMain] INFO  [correlationId=] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-10-01 18:16:42.092 [restartedMain] WARN  [correlationId=] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-10-01 18:16:42.445 [restartedMain] INFO  [correlationId=] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-10-01 18:16:42.590 [restartedMain] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-10-01 18:16:42.606 [restartedMain] INFO  [correlationId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-10-01 18:16:42.646 [restartedMain] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-10-01 18:16:42.646 [restartedMain] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-10-01 18:16:42.647 [restartedMain] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-10-01 18:16:42.647 [restartedMain] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-10-01 18:16:42.648 [restartedMain] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-10-01 18:16:42.648 [restartedMain] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-10-01 18:16:42.648 [restartedMain] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-10-01 18:16:43.898 [restartedMain] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-10-01 18:16:43.907 [restartedMain] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-10-01 18:16:43.917 [restartedMain] INFO  [correlationId=] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-10-01 18:16:43.930 [restartedMain] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1790858803924 with initial instances count: 2
+2026-10-01 18:16:43.948 [restartedMain] INFO  [correlationId=] o.s.c.n.e.s.EurekaServiceRegistry - Registering application PRODUCT-SERVICE with eureka with status UP
+2026-10-01 18:16:43.951 [restartedMain] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1790858803951, current=UP, previous=STARTING]
+2026-10-01 18:16:43.959 [restartedMain] INFO  [correlationId=] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-10-01 18:16:43.961 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080: registering service...
+2026-10-01 18:16:44.017 [restartedMain] INFO  [correlationId=] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-10-01 18:16:44.019 [restartedMain] INFO  [correlationId=] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8080
+2026-10-01 18:16:44.071 [restartedMain] INFO  [correlationId=] d.n.p.ProductServiceApplication - Started ProductServiceApplication in 42.721 seconds (process running for 48.939)
+2026-10-01 18:16:44.120 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080 - registration status: 204
+2026-10-01 18:18:05.805 [http-nio-8080-exec-1] INFO  [correlationId=] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-01 18:18:05.818 [http-nio-8080-exec-1] INFO  [correlationId=] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-10-01 18:18:06.035 [http-nio-8080-exec-1] INFO  [correlationId=] o.s.web.servlet.DispatcherServlet - Completed initialization in 216 ms
+2026-10-01 18:18:07.297 [http-nio-8080-exec-1] INFO  [correlationId=c9eea5d8-6c51-4ef1-83e8-529afb46cb3b] d.n.p.controllers.ProductController - GET /products called, correlationId: 
+2026-10-01 18:18:07.760 [http-nio-8080-exec-1] WARN  [correlationId=c9eea5d8-6c51-4ef1-83e8-529afb46cb3b] o.s.d.w.c.SpringDataJackson3Configuration$PageModule$WarningLoggingModifier - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-10-01 18:19:39.230 [SpringApplicationShutdownHook] INFO  [correlationId=] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application PRODUCT-SERVICE with eureka with status DOWN
+2026-10-01 18:19:39.236 [SpringApplicationShutdownHook] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1790858979236, current=DOWN, previous=UP]
+2026-10-01 18:19:39.238 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080: registering service...
+2026-10-01 18:19:39.267 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080 - registration status: 204
+2026-10-01 18:19:39.316 [SpringApplicationShutdownHook] INFO  [correlationId=] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-01 18:19:39.347 [tomcat-shutdown] INFO  [correlationId=] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-10-01 18:19:39.579 [SpringApplicationShutdownHook] INFO  [correlationId=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-01 18:19:39.643 [SpringApplicationShutdownHook] INFO  [correlationId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-10-01 18:19:39.732 [SpringApplicationShutdownHook] INFO  [correlationId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-10-01 18:19:39.740 [SpringApplicationShutdownHook] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-10-01 18:19:42.745 [SpringApplicationShutdownHook] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-10-01 18:19:42.772 [SpringApplicationShutdownHook] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_PRODUCT-SERVICE/Christopher.mshome.net:PRODUCT-SERVICE:8080 - deregister  status: 200
+2026-10-01 18:19:42.773 [SpringApplicationShutdownHook] INFO  [correlationId=] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient

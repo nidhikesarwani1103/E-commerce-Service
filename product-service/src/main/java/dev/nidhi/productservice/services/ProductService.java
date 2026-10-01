@@ -1,5 +1,6 @@
 package dev.nidhi.productservice.services;
 
+import dev.nidhi.productservice.controllers.ProductController;
 import dev.nidhi.productservice.dtos.ProductDTO;
 import dev.nidhi.productservice.exceptions.ProductNotFoundException;
 import dev.nidhi.productservice.models.Category;
@@ -7,6 +8,8 @@ import dev.nidhi.productservice.models.Product;
 import dev.nidhi.productservice.repositories.CategoryRepository;
 import dev.nidhi.productservice.repositories.ProductRepository;
 import dev.nidhi.productservice.specification.ProductSpecification;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -26,6 +29,8 @@ public class ProductService {
     private final CategoryRepository categoryRepository;
     private static final Set<String> ALLOWED_SORT_FIELDS =
             Set.of("id", "title", "price","createdAt", "updatedAt");
+
+    private final Logger log = LoggerFactory.getLogger(ProductService.class);
 
     public ProductService(ProductRepository productRepository,
                           CategoryRepository categoryRepository) {
