@@ -11,4 +11,5 @@ public class CreatePaymentRequest {
     private Long amount;
     private String currency;
     private Long userId;
+    private Long orderId;
 }

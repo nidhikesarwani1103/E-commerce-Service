@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    ```
+    <title>E-Commerce Checkout</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Razorpay Checkout -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    ```
+
+</head>
+
+<body>
+
+<div class="container">
+
+    ```
+    <h1>E-Commerce Store</h1>
+
+    <div class="card">
+
+        <h2>Create Order</h2>
+
+        <label for="token">JWT Token</label>
+        <textarea
+                id="token"
+                rows="5"
+                placeholder="Paste your JWT token here"
+        ></textarea>
+
+        <label for="productId">Product ID</label>
+        <input
+                type="number"
+                id="productId"
+                placeholder="Enter product ID"
+                value="1"
+        >
+
+        <label for="quantity">Quantity</label>
+        <input
+                type="number"
+                id="quantity"
+                min="1"
+                value="1"
+        >
+
+        <button id="payButton">
+            Create Order & Pay
+        </button>
+
+        <p id="status"></p>
+
+    </div>
+    ```
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

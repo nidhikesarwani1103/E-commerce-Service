@@ -11,5 +11,7 @@ public record CreatePaymentRequest(
         @NotBlank
         String currency,
         @NotNull
-        Long userId
+        Long userId,
+        @NotNull
+        Long orderId
 ) { }

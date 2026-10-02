@@ -2,10 +2,7 @@ package dev.nidhi.orderservice.services;
 
 import dev.nidhi.orderservice.client.PaymentServiceClient;
 import dev.nidhi.orderservice.client.ProductServiceClient;
-import dev.nidhi.orderservice.dtos.CreateOrderRequest;
-import dev.nidhi.orderservice.dtos.CreatePaymentRequest;
-import dev.nidhi.orderservice.dtos.PaymentResponse;
-import dev.nidhi.orderservice.dtos.ProductResponse;
+import dev.nidhi.orderservice.dtos.*;
 import dev.nidhi.orderservice.models.Order;
 import dev.nidhi.orderservice.models.OrderItem;
 import dev.nidhi.orderservice.models.OrderStatus;
@@ -33,14 +30,15 @@ public class OrderService {
         return productServiceClient.getProductById(productId, token);
     }
 
-    public Order createOrder(CreateOrderRequest request,
-                             String token, Jwt jwt) {
+    public OrderCreationResponse  createOrder(CreateOrderRequest request,
+                                               String token,
+                                               Jwt jwt) {
         Order order = new Order();
 
         Long userId = jwt.getClaim("userId");
 
         order.setUserId(userId);
-        order.setStatus(OrderStatus.CREATED);
+        order.setStatus(OrderStatus.PAYMENT_PENDING);
 
         BigDecimal totalAmount = BigDecimal.ZERO;
 
@@ -67,10 +65,32 @@ public class OrderService {
         order.setTotalAmount(totalAmount);
 
         orderRepository.save(order);
-        return order;
-    }
 
-    public PaymentResponse createPayment(CreatePaymentRequest request){
-        return paymentServiceClient.createPayment(request);
+        try{
+            PaymentResponse paymentResponse = paymentServiceClient
+                    .createPayment(
+                            new CreatePaymentRequest(
+                                    order.getTotalAmount().longValue(),
+                                    "INR",
+                                    order.getUserId(),
+                                    order.getId()
+                            ));
+
+            OrderCreationResponse response = new OrderCreationResponse();
+            response.setOrderId(order.getId());
+            response.setPaymentId(paymentResponse.getId());
+            response.setProviderOrderId(paymentResponse.getProviderOrderId());
+            response.setAmount(paymentResponse.getAmount());
+            response.setCurrency(paymentResponse.getCurrency());
+            response.setStatus(order.getStatus());
+
+            return response;
+        }
+        catch(Exception e){
+            order.setStatus(OrderStatus.FAILED);
+            orderRepository.save(order);
+            throw new RuntimeException("Payment service is not available");
+        }
+
     }
 }

@@ -15,5 +15,9 @@ public class PaymentResponse {
     @Enumerated(EnumType.STRING)
     private PaymentStatus status;
     private Long userId;
+    private Long orderId;
+
+    private String providerOrderId;
+    private String providerPaymentId;
 }
 

@@ -5,6 +5,8 @@ import dev.nidhi.paymentservice.dtos.RazorpayCreateOrderRequest;
 import dev.nidhi.paymentservice.dtos.RazorpayCreateOrderResponse;
 import dev.nidhi.paymentservice.dtos.RazorpayPaymentResponse;
 import dev.nidhi.paymentservice.dtos.RazorpayPaymentsResponse;
+import dev.nidhi.paymentservice.events.PaymentCompletedEvent;
+import dev.nidhi.paymentservice.kafka.PaymentEventProducer;
 import dev.nidhi.paymentservice.models.CreatePaymentRequest;
 import dev.nidhi.paymentservice.models.Payment;
 import dev.nidhi.paymentservice.models.PaymentStatus;
@@ -19,6 +21,7 @@ import java.time.Instant;
 public class PaymentService {
     private final PaymentRepository paymentRepository;
     private final RazorpayClient razorpayClient;
+    private final PaymentEventProducer paymentEventProducer;
 
     public Payment createPayment(CreatePaymentRequest paymentRequest){
           Payment payment = new Payment();
@@ -43,6 +46,7 @@ public class PaymentService {
         payment.setExpiresAt(Instant.now().plusSeconds(60*15));
         payment.setProviderOrderId(response.id());
         payment.setUserId(paymentRequest.userId());
+        payment.setOrderId(paymentRequest.orderId());
 
         return paymentRepository.save(payment);
     }
@@ -51,11 +55,12 @@ public class PaymentService {
                                       String providerPaymentId,
                                       Long amount){
         Payment payment = paymentRepository.findByProviderOrderId(providerOrderId)
-                .orElseThrow(
-                        () -> new IllegalArgumentException
-                                ("Payment not found with provider order id:" +
-                                        " " + providerOrderId)
-                );
+                                            .orElseThrow(
+                                                    () -> new IllegalArgumentException
+                                                            ("Payment not found with " +
+                                                                    "provider order id:" +
+                                                                    " " + providerOrderId)
+                                            );
 
         if(!payment.getAmount().equals(amount)){
             throw new IllegalArgumentException("Payment amount does not match with order!");
@@ -71,6 +76,22 @@ public class PaymentService {
         payment.setUpdatedAt(Instant.now());
 
         paymentRepository.save(payment);
+
+        System.out.println("========== PAYMENT SUCCESS ==========");
+        System.out.println("Payment ID: " + payment.getId());
+        System.out.println("Order ID: " + payment.getOrderId());
+
+        // Publish payment success event to Kafka
+        PaymentCompletedEvent event = new PaymentCompletedEvent(
+                payment.getId(),
+                payment.getOrderId(),
+                payment.getUserId(),
+                payment.getStatus().name(),
+                payment.getProviderPaymentId()
+        );
+
+        System.out.println("Publishing payment event: " + event);
+        paymentEventProducer.publishPaymentCompletedEvent(event);
     }
 
     public void handlePaymentFailed(String providerOrderId,

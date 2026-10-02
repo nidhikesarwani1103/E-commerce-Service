@@ -25,7 +25,11 @@ public class RazorpayWebhookController {
                                         @RequestBody String payload,
                                         @RequestHeader("X-Razorpay-Signature") String signature)
                                         throws NoSuchAlgorithmException {
+
+        System.out.println("========== RAZORPAY WEBHOOK HIT ==========");
+
         boolean valid = signatureVerifier.verify(payload, signature);
+
         if(!valid){
             return ResponseEntity.badRequest().build();
         }
@@ -37,7 +41,7 @@ public class RazorpayWebhookController {
             );
 
             RazorPayWebhookEntity entity = webhoook
-                                    .payload().payment().entity();
+                                           .payload().payment().entity();
 
             if("payment.captured".equals(webhoook.event())){
                 paymentService.handlePaymentCaptured(

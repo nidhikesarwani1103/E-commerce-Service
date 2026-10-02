@@ -1,10 +1,7 @@
 package dev.nidhi.orderservice.controllers;
 
 import dev.nidhi.orderservice.client.PaymentServiceClient;
-import dev.nidhi.orderservice.dtos.CreateOrderRequest;
-import dev.nidhi.orderservice.dtos.CreatePaymentRequest;
-import dev.nidhi.orderservice.dtos.PaymentResponse;
-import dev.nidhi.orderservice.dtos.ProductResponse;
+import dev.nidhi.orderservice.dtos.*;
 import dev.nidhi.orderservice.models.Order;
 import dev.nidhi.orderservice.services.OrderService;
 import jakarta.validation.Valid;
@@ -29,20 +26,12 @@ public class OrderController {
     }
 
     @PostMapping("/create")
-    public Order createOrder(
+    public OrderCreationResponse createOrder(
             @Valid @RequestBody CreateOrderRequest request,
             @RequestHeader("Authorization") String token,
             @AuthenticationPrincipal Jwt jwt) {
         return orderService.createOrder(request, token, jwt);
     }
 
-    @PostMapping("/make-payment")
-    public PaymentResponse makePayment(
-            @RequestBody CreatePaymentRequest request,
-            @AuthenticationPrincipal Jwt jwt) {
-        Long userId = jwt.getClaim("userId");
-        request.setUserId(userId);
-        return orderService.createPayment(request);
-    }
 
 }
