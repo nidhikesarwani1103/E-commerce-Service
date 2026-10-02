@@ -8,6 +8,7 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +27,8 @@ public class PaymentController {
     @Value("${server.port}")
     private String port;
 
-    @PostMapping("")
+    @PostMapping(value = "",
+            produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Payment> createPayment
             (@RequestBody @Valid CreatePaymentRequest paymentRequest) {
         Payment payment = paymentService.createPayment(paymentRequest);

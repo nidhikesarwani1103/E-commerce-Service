@@ -42,6 +42,7 @@ public class PaymentService {
         payment.setStatus(PaymentStatus.CREATED);
         payment.setExpiresAt(Instant.now().plusSeconds(60*15));
         payment.setProviderOrderId(response.id());
+        payment.setUserId(paymentRequest.userId());
 
         return paymentRepository.save(payment);
     }

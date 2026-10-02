@@ -9,5 +9,7 @@ public record CreatePaymentRequest(
         @Positive
         Long amount,
         @NotBlank
-        String currency
+        String currency,
+        @NotNull
+        Long userId
 ) { }

@@ -1,7 +1,10 @@
 package dev.nidhi.orderservice.services;
 
+import dev.nidhi.orderservice.client.PaymentServiceClient;
 import dev.nidhi.orderservice.client.ProductServiceClient;
 import dev.nidhi.orderservice.dtos.CreateOrderRequest;
+import dev.nidhi.orderservice.dtos.CreatePaymentRequest;
+import dev.nidhi.orderservice.dtos.PaymentResponse;
 import dev.nidhi.orderservice.dtos.ProductResponse;
 import dev.nidhi.orderservice.models.Order;
 import dev.nidhi.orderservice.models.OrderItem;
@@ -15,11 +18,14 @@ import java.math.BigDecimal;
 @Service
 public class OrderService {
     private final ProductServiceClient productServiceClient;
+    private final PaymentServiceClient paymentServiceClient;
     private final OrderRepository orderRepository;
 
     public OrderService(ProductServiceClient productServiceClient,
+                        PaymentServiceClient paymentServiceClient,
                         OrderRepository orderRepository) {
         this.productServiceClient = productServiceClient;
+        this.paymentServiceClient = paymentServiceClient;
         this.orderRepository = orderRepository;
     }
 
@@ -62,5 +68,9 @@ public class OrderService {
 
         orderRepository.save(order);
         return order;
+    }
+
+    public PaymentResponse createPayment(CreatePaymentRequest request){
+        return paymentServiceClient.createPayment(request);
     }
 }
