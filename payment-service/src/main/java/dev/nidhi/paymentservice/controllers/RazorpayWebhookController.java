@@ -22,42 +22,65 @@ public class RazorpayWebhookController {
 
     @PostMapping
     public ResponseEntity<String> handleWebhook(
-                                        @RequestBody String payload,
-                                        @RequestHeader("X-Razorpay-Signature") String signature)
-                                        throws NoSuchAlgorithmException {
+            @RequestBody String payload,
+            @RequestHeader("X-Razorpay-Signature") String signature)
+            throws NoSuchAlgorithmException {
 
         System.out.println("========== RAZORPAY WEBHOOK HIT ==========");
 
+        System.out.println("Signature: " + signature);
+        System.out.println("Payload: " + payload);
+
         boolean valid = signatureVerifier.verify(payload, signature);
 
-        if(!valid){
-            return ResponseEntity.badRequest().build();
+        System.out.println("Signature valid: " + valid);
+
+        if (!valid) {
+            System.out.println("========== INVALID SIGNATURE ==========");
+            return ResponseEntity.badRequest().body("Invalid signature");
         }
 
+        try {
 
-        try{
-            RazorpayWebhookPayload webhoook =  jsonMapper.readValue(
-                    payload, RazorpayWebhookPayload.class
-            );
+            RazorpayWebhookPayload webhook =
+                    jsonMapper.readValue(payload, RazorpayWebhookPayload.class);
 
-            RazorPayWebhookEntity entity = webhoook
-                                           .payload().payment().entity();
+            RazorPayWebhookEntity entity =
+                    webhook.payload().payment().entity();
 
-            if("payment.captured".equals(webhoook.event())){
+            System.out.println("Event: " + webhook.event());
+            System.out.println("Provider Order ID: " + entity.orderId());
+            System.out.println("Provider Payment ID: " + entity.id());
+            System.out.println("Amount: " + entity.amount());
+
+            if ("payment.captured".equals(webhook.event())) {
+
                 paymentService.handlePaymentCaptured(
-                        entity.orderId(), entity.id(), entity.amount());
-            }
-            else if ("payment.failed".equals(webhoook.event())){
+                        entity.orderId(),
+                        entity.id(),
+                        entity.amount()
+                );
+
+            } else if ("payment.failed".equals(webhook.event())) {
+
                 paymentService.handlePaymentFailed(
-                        entity.orderId(), entity.id(), entity.amount());
+                        entity.orderId(),
+                        entity.id(),
+                        entity.amount()
+                );
             }
-        }
-        catch (Exception e){
-            System.out.println("Failed tp parse json payload!");
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+            return ResponseEntity
+                    .badRequest()
+                    .body("Webhook processing failed");
         }
 
         System.out.println("Razorpay webhook received!");
-        System.out.println(payload);
+
         return ResponseEntity.ok().build();
     }
 }

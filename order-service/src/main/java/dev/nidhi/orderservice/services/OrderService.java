@@ -84,6 +84,8 @@ public class OrderService {
             response.setCurrency(paymentResponse.getCurrency());
             response.setStatus(order.getStatus());
 
+            order.setPaymentId(paymentResponse.getId());
+            orderRepository.save(order);
             return response;
         }
         catch(Exception e){
@@ -92,5 +94,13 @@ public class OrderService {
             throw new RuntimeException("Payment service is not available");
         }
 
+    }
+
+    public ReconcileResponseDTO reconcilePayment(Long orderId){
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new IllegalArgumentException("Order not found"));
+
+        Long paymentId = order.getPaymentId();
+        return paymentServiceClient.reconcilePayment(paymentId);
     }
 }

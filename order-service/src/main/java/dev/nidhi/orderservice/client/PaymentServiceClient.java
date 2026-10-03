@@ -2,6 +2,7 @@ package dev.nidhi.orderservice.client;
 
 import dev.nidhi.orderservice.dtos.CreatePaymentRequest;
 import dev.nidhi.orderservice.dtos.PaymentResponse;
+import dev.nidhi.orderservice.dtos.ReconcileResponseDTO;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
@@ -35,5 +36,13 @@ public class PaymentServiceClient {
                 .uri("/payments/hello")
                 .retrieve()
                 .body(String.class);
+    }
+
+    public ReconcileResponseDTO reconcilePayment(Long paymentId){
+        return restClient
+                .get()
+                .uri("/payments/{id}/reconcile", paymentId)
+                .retrieve()
+                .body(ReconcileResponseDTO.class);
     }
 }

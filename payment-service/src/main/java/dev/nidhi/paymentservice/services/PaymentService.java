@@ -5,8 +5,6 @@ import dev.nidhi.paymentservice.dtos.RazorpayCreateOrderRequest;
 import dev.nidhi.paymentservice.dtos.RazorpayCreateOrderResponse;
 import dev.nidhi.paymentservice.dtos.RazorpayPaymentResponse;
 import dev.nidhi.paymentservice.dtos.RazorpayPaymentsResponse;
-import dev.nidhi.paymentservice.events.PaymentCompletedEvent;
-import dev.nidhi.paymentservice.kafka.PaymentEventProducer;
 import dev.nidhi.paymentservice.models.CreatePaymentRequest;
 import dev.nidhi.paymentservice.models.Payment;
 import dev.nidhi.paymentservice.models.PaymentStatus;
@@ -21,7 +19,6 @@ import java.time.Instant;
 public class PaymentService {
     private final PaymentRepository paymentRepository;
     private final RazorpayClient razorpayClient;
-    private final PaymentEventProducer paymentEventProducer;
 
     public Payment createPayment(CreatePaymentRequest paymentRequest){
           Payment payment = new Payment();
@@ -54,6 +51,8 @@ public class PaymentService {
     public void handlePaymentCaptured(String providerOrderId,
                                       String providerPaymentId,
                                       Long amount){
+
+        System.out.println("========== PAYMENT CAPTURED ==========");
         Payment payment = paymentRepository.findByProviderOrderId(providerOrderId)
                                             .orElseThrow(
                                                     () -> new IllegalArgumentException
@@ -81,17 +80,6 @@ public class PaymentService {
         System.out.println("Payment ID: " + payment.getId());
         System.out.println("Order ID: " + payment.getOrderId());
 
-        // Publish payment success event to Kafka
-        PaymentCompletedEvent event = new PaymentCompletedEvent(
-                payment.getId(),
-                payment.getOrderId(),
-                payment.getUserId(),
-                payment.getStatus().name(),
-                payment.getProviderPaymentId()
-        );
-
-        System.out.println("Publishing payment event: " + event);
-        paymentEventProducer.publishPaymentCompletedEvent(event);
     }
 
     public void handlePaymentFailed(String providerOrderId,
@@ -122,13 +110,13 @@ public class PaymentService {
         paymentRepository.save(payment);
     }
 
-    public void reconcilePayment(Payment payment){
+    public String reconcilePayment(Payment payment){
         RazorpayPaymentsResponse response =
                 razorpayClient.getPaymentsForOrder(payment.getProviderOrderId());
 
         // No payment attempted for this order
         if(response.items()==null || response.items().isEmpty()){
-            return;
+            return PaymentStatus.PENDING.toString();
         }
 
         RazorpayPaymentResponse paymentResponse = response.items().getFirst();
@@ -153,12 +141,14 @@ public class PaymentService {
             }
 
             default -> {
-                return;
+                return payment.getStatus().toString();
             }
         }
 
 
         payment.setUpdatedAt(Instant.now());
         paymentRepository.save(payment);
+
+        return payment.getStatus().toString();
     }
 }

@@ -92,16 +92,59 @@ payButton.addEventListener("click", async () => {
 
             order_id: data.providerOrderId,
 
-            handler: function (paymentResponse) {
+                handler: async function (paymentResponse) {
 
-                console.log(
-                    "Razorpay payment response:",
-                    paymentResponse
-                );
+                    console.log(
+                        "Razorpay payment response:",
+                        paymentResponse
+                    );
 
-                statusElement.textContent =
-                    "Payment completed. Waiting for confirmation...";
-            },
+                    statusElement.textContent =
+                        "Payment completed. Confirming order...";
+
+                    try {
+
+                        const reconcileResponse = await fetch(
+                            `http://localhost:8088/orders/${data.orderId}/reconcile`,
+                            {
+                                method: "POST",
+
+                                headers: {
+                                    "Authorization": token.startsWith("Bearer ")
+                                        ? token
+                                        : `Bearer ${token}`
+                                }
+                            }
+                        );
+
+                        const reconcileData = await reconcileResponse.json();
+
+                        if (!reconcileResponse.ok) {
+                            throw new Error(
+                                reconcileData.message ||
+                                `HTTP ${reconcileResponse.status}`
+                            );
+                        }
+
+                        console.log(
+                            "Reconciliation response:",
+                            reconcileData
+                        );
+
+                        statusElement.textContent =
+                            `Payment status: ${reconcileData.status}`;
+
+                    } catch (error) {
+
+                        console.error(
+                            "Reconciliation error:",
+                            error
+                        );
+
+                        statusElement.textContent =
+                            `Payment completed, but confirmation failed: ${error.message}`;
+                    }
+                },
 
             modal: {
                 ondismiss: function () {
