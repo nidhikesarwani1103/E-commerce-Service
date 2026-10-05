@@ -107,7 +107,7 @@ payButton.addEventListener("click", async () => {
                         const reconcileResponse = await fetch(
                             `http://localhost:8088/orders/${data.orderId}/reconcile`,
                             {
-                                method: "POST",
+                                method: "GET",
 
                                 headers: {
                                     "Authorization": token.startsWith("Bearer ")
@@ -131,8 +131,16 @@ payButton.addEventListener("click", async () => {
                             reconcileData
                         );
 
-                        statusElement.textContent =
-                            `Payment status: ${reconcileData.status}`;
+                        if (reconcileData.status === "SUCCESS") {
+                            statusElement.textContent =
+                                `Payment successful. Order ${data.orderId} is confirmed.`;
+                        } else if (reconcileData.status === "FAILED") {
+                            statusElement.textContent =
+                                `Payment failed. Order ${data.orderId} was not confirmed.`;
+                        } else {
+                            statusElement.textContent =
+                                `Payment status: ${reconcileData.status}`;
+                        }
 
                     } catch (error) {
 

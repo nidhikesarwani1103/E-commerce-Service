@@ -101,6 +101,17 @@ public class OrderService {
                 .orElseThrow(() -> new IllegalArgumentException("Order not found"));
 
         Long paymentId = order.getPaymentId();
-        return paymentServiceClient.reconcilePayment(paymentId);
+
+        ReconcileResponseDTO response = paymentServiceClient
+                                              .reconcilePayment(paymentId);
+
+        if("SUCCESS".equals(response.status())){
+            order.setStatus(OrderStatus.CONFIRMED);
+        }
+        else if("FAILED".equals(response.status())){
+            order.setStatus(OrderStatus.FAILED);
+        }
+        orderRepository.save(order);
+        return response;
     }
 }
