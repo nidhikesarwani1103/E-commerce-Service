@@ -12,6 +12,8 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
@@ -43,6 +45,17 @@ public class OrderController {
                          @PathVariable Long orderId){
         ReconcileResponseDTO response = orderService.reconcilePayment(orderId);
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/get-for-user/{userId}")
+    public List<OrderResponse> getOrderDetails(
+            @PathVariable("userId") Long userId){
+
+      List<OrderResponse> orders = orderService.getForUser(userId)
+              .stream()
+              .map(order -> OrderResponse.fromOrder(order))
+              .toList();
+        return orders;
     }
 
 }

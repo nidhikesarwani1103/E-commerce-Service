@@ -84,6 +84,7 @@ public class SecurityConfig {
 
 
         http
+                .cors(Customizer.withDefaults())
                 .oauth2AuthorizationServer(authorizationServer -> {
 
                     http.securityMatcher(
@@ -280,6 +281,51 @@ public class SecurityConfig {
                 registeredClientRepository.save(registeredClient);
 
                 System.out.println("OAuth2 client created: postman-client");
+            }
+
+            if (registeredClientRepository.findByClientId("store-web-client") == null) {
+
+                RegisteredClient registeredClient = RegisteredClient
+                        .withId(UUID.randomUUID().toString())
+                        .clientId("store-web-client")
+                        .clientName("Nidhi Store Web")
+                        .clientIdIssuedAt(Instant.now())
+
+                        .clientAuthenticationMethod(
+                                ClientAuthenticationMethod.NONE
+                        )
+
+                        .authorizationGrantType(
+                                AuthorizationGrantType.AUTHORIZATION_CODE
+                        )
+
+                        .redirectUri(
+                                "http://localhost:63342/e-commerce-micorservices/index.html"
+                        )
+
+                        .scope(OidcScopes.OPENID)
+                        .scope(OidcScopes.PROFILE)
+                        .scope("product.read")
+
+                        .clientSettings(
+                                ClientSettings.builder()
+                                        .requireAuthorizationConsent(false)
+                                        .requireProofKey(true)
+                                        .build()
+                        )
+
+                        .tokenSettings(
+                                TokenSettings.builder()
+                                        .accessTokenTimeToLive(Duration.ofHours(1))
+                                        .refreshTokenTimeToLive(Duration.ofDays(30))
+                                        .build()
+                        )
+
+                        .build();
+
+                registeredClientRepository.save(registeredClient);
+
+                System.out.println("OAuth2 client created: store-web-client");
             }
         };
     }

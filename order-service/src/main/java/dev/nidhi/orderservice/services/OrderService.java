@@ -11,6 +11,7 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class OrderService {
@@ -114,4 +115,9 @@ public class OrderService {
         orderRepository.save(order);
         return response;
     }
+
+    public List<Order> getForUser(Long userId){
+        return orderRepository.findAllByUserId(userId);
+    }
+
 }
