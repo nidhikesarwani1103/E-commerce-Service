@@ -8,13 +8,13 @@ import lombok.Setter;
 @Setter
 public class OrderItemResponse {
     private Long id;
-    private Long productId;
+    private String productName;
     private Integer quantity;
 
     public static OrderItemResponse fromOrderItem(OrderItem item){
         OrderItemResponse itemResponse = new OrderItemResponse();
         itemResponse.setId(item.getId());
-        itemResponse.setProductId(item.getProductId());
+        itemResponse.setProductName(item.getProductName());
         itemResponse.setQuantity(item.getQuantity());
         return itemResponse;
     }

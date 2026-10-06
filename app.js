@@ -1031,93 +1031,129 @@ async function loadOrders() {
 
 function renderOrders(orders) {
 
-    const ordersContent =
-        document.getElementById("ordersContent");
+    const ordersContent = document.getElementById("ordersContent");
 
     if (!orders.length) {
 
         ordersContent.innerHTML = `
-            <div class="result-card">
+            <div class="orders-empty">
+
+                <div class="orders-empty-icon">📦</div>
+
                 <h2>No orders yet</h2>
 
                 <p>
                     You haven't placed any orders yet.
                 </p>
 
-                <button
-                    class="primary-button"
-                    onclick="goToProducts()"
-                >
-                    Browse Products
+                <button class="primary-button" onclick="goToProducts()">
+                    Start Shopping
                 </button>
+
             </div>
         `;
 
         return;
     }
 
-    ordersContent.innerHTML = orders
-        .map(order => {
+    ordersContent.innerHTML = `
+        <div class="orders-list">
 
-            const items =
-                order.items
-                    .map(item => `
-                        <div class="order-item">
-                            <span>
-                                Product #${item.productId}
-                            </span>
+            ${orders.map(order => {
 
-                            <span>
-                                × ${item.quantity}
-                            </span>
-                        </div>
-                    `)
-                    .join("");
+        const statusClass =
+            order.status.toLowerCase().replace(/ /g, "_");
 
-            return `
-                <div class="order-card">
+        const items = order.items.map(item => `
+                    <div class="order-product-row">
 
-                    <div class="order-header">
-
-                        <div>
-                            <p class="eyebrow">
-                                ORDER
-                            </p>
-
-                            <h3>
-                                #${order.id}
-                            </h3>
+                        <div class="order-product-icon">
+                            🛍️
                         </div>
 
-                        <div class="order-status ${order.status.toLowerCase()}">
-                            ${order.status}
+                        <div class="order-product-info">
+
+                            <div class="order-product-name">
+                                ${escapeHtml(item.productName)}
+                            </div>
+
+                            <div class="order-product-meta">
+                                Quantity: ${item.quantity}
+                            </div>
+
                         </div>
 
                     </div>
+                `).join("");
 
-                    <div class="order-items">
+        return `
+                    <div class="order-row">
 
-                        ${items}
+                        <!-- Order information -->
+
+                        <div class="order-row-header">
+
+                            <div>
+                                <span class="order-label">
+                                    ORDER
+                                </span>
+
+                                <strong>
+                                    #${order.id}
+                                </strong>
+                            </div>
+
+                            <div class="order-status ${statusClass}">
+                                ${order.status.replace(/_/g, " ")}
+                            </div>
+
+                        </div>
+
+
+                        <!-- Products -->
+
+                        <div class="order-products">
+
+                            ${items}
+
+                        </div>
+
+
+                        <!-- Bottom information -->
+
+                        <div class="order-row-footer">
+
+                            <div class="order-total-section">
+
+                                <span>
+                                    Order Total
+                                </span>
+
+                                <strong>
+                                    ₹${formatPrice(order.amount)}
+                                </strong>
+
+                            </div>
+
+                            <div class="order-actions">
+
+                               <div class="order-actions">
+                                    <span class="order-date-label">
+                                        Order #${order.id}
+                                    </span>
+                               </div>
+
+                            </div>
+
+                        </div>
 
                     </div>
+                `;
 
-                    <div class="order-footer">
+    }).join("")}
 
-                        <span>
-                            Total
-                        </span>
-
-                        <strong>
-                            ₹${formatPrice(order.amount)}
-                        </strong>
-
-                    </div>
-
-                </div>
-            `;
-
-        })
-        .join("");
+        </div>
+    `;
 }
 
 async function startLogin() {
