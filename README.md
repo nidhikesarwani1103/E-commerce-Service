@@ -303,8 +303,8 @@ Install or configure:
 Replace the placeholders with your actual GitHub repository details.
 
 ```bash
-git clone <repository-url>
-cd <repository-directory>
+git clone git@github.com:nidhikesarwani1103/E-commerce-Service.git
+cd E-commerce-service
 ```
 
 ### 2. Prepare the Databases
