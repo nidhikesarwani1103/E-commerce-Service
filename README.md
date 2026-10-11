@@ -485,6 +485,6 @@ These are potential enhancements and are not all claimed as implemented features
 
 ## Author
 
-**Nidhi**
+**Nidhi Kesarwani**
 
 This project demonstrates practical learning and implementation in Java backend development, microservices architecture, API security, service discovery, caching, payment integration, and deployment.
